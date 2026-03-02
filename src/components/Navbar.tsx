@@ -19,7 +19,7 @@ const Navbar = () => {
   }, []);
 
   const links = [
-    { label: "Features", href: "#features" },
+    { label: "Destinations", href: "#popular-destinations" },
     { label: "Planner", href: "/planner" },
   ];
 

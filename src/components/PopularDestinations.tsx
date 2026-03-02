@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
+import DestinationsBg from "../assets/Destinations.png";
 
 interface Destination {
   id: number;
@@ -33,41 +34,20 @@ const destinations: Destination[] = [
   },
   {
     id: 4,
-    name: "Greece",
-    country: "Europe",
-    description: "Santorini's iconic white houses & blue domes overlooking the sea",
-    image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&q=80",
-  },
-  {
-    id: 5,
-    name: "Japan",
-    country: "Asia",
-    description: "Cherry blossoms, ancient temples & futuristic Tokyo streets",
-    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
-  },
-  {
-    id: 6,
-    name: "Italy",
-    country: "Europe",
-    description: "Venetian canals, historic ruins & the rolling hills of Tuscany",
-    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80",
-  },
-  {
-    id: 7,
     name: "Paris",
     country: "Europe",
     description: "The Eiffel Tower, Louvre museum & romantic city strolls",
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
   },
   {
-    id: 8,
+    id: 5,
     name: "Iceland",
     country: "Europe",
     description: "Northern lights, volcanic landscapes & geothermal spas",
     image: "https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&q=80",
   },
   {
-    id: 9,
+    id: 6,
     name: "New York",
     country: "USA",
     description: "Times Square, Central Park & the iconic skyline",
@@ -129,9 +109,15 @@ const PopularDestinations = () => {
     <section
       ref={sectionRef}
       id="destinations"
-      className="relative py-24 overflow-hidden"
-      style={{ backgroundColor: "#f8f5f2" }}
+      className="relative py-20 overflow-hidden"
+      style={{ backgroundColor: "transparent" }}
     >
+      <img
+        src={DestinationsBg}
+        alt="Destinations background"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none select-none"
+        style={{ opacity: 1 }}
+      />
       {/* Gradient divider from hero section */}
       <div
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
@@ -159,21 +145,6 @@ const PopularDestinations = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 border"
-            style={{
-              backgroundColor: "rgba(255, 122, 47, 0.1)",
-              borderColor: "rgba(255, 122, 47, 0.3)",
-            }}
-          >
-            <MapPin className="w-4 h-4" style={{ color: "#ff7a2f" }} />
-            <span
-              className="text-xs font-semibold uppercase tracking-widest"
-              style={{ color: "#ff7a2f" }}
-            >
-              Top Picks
-            </span>
-          </div>
           <h2
             className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5"
             style={{ color: "#0e1f41" }}
@@ -189,12 +160,12 @@ const PopularDestinations = () => {
         </div>
 
         {/* Destinations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
           {destinations.map((destination, index) => (
             <div
               key={destination.id}
               ref={(el) => (cardRefs.current[index] = el)}
-              className={`destination-card group relative h-[320px] md:h-[380px] cursor-pointer transition-all duration-500 ${
+              className={`destination-card group relative h-[240px] md:h-[300px] cursor-pointer transition-all duration-500 ${
                 visibleCards.has(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-12"

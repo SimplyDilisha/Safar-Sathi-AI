@@ -72,12 +72,6 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-
-          {/* World Map */}
-          <div className="col-span-1 md:col-span-1 lg:col-span-1 h-80 md:h-96 lg:h-96">
-            <h4 className="font-semibold text-white text-sm mb-3">Travel Activity</h4>
-            <WorldMap />
-          </div>
         </div>
 
         {/* Bottom bar */}

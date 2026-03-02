@@ -103,7 +103,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-400">
           <Link
             to="/planner"
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-blue-500 text-white font-semibold text-lg shadow-glow-blue hover:opacity-90 hover:scale-105 transition-all duration-200 w-full sm:w-auto justify-center" style={{color:"black"}}
+            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-blue-500 text-white font-semibold text-lg shadow-glow-blue hover:opacity-90 hover:scale-105 transition-all duration-200 w-full sm:w-auto justify-center border-2 border-black" style={{color:"black"}}
           >
             Generate My Trip
             <ArrowRight className="w-5 h-5" />
