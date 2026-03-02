@@ -1,13 +1,13 @@
 import { Plane, Twitter, Instagram, Linkedin, Github, Mail } from "lucide-react";
+import WorldMap from "./WorldMap";
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   const links = {
-    Product: ["Features", "Pricing", "Demo", "Changelog"],
-    Company: ["About", "Blog", "Careers", "Press"],
-    Support: ["Help Center", "Privacy Policy", "Terms of Service", "Contact"],
-    Developers: ["API Docs", "Integrations", "Status", "GitHub"],
+    
+    Support: ["Help Center", "Privacy Policy", "Terms of Service", "Contact"]
+
   };
 
   const socials = [
@@ -19,23 +19,23 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border overflow-hidden">
+    <footer className="relative border-t border-border overflow-hidden bg-black">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-3xl rounded-full dark:bg-primary/6" />
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
-          <div className="col-span-2">
+          <div className="col-span-1 md:col-span-1 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center glow-blue">
                 <img src="\src\assets\Logo.png" alt="Logo" className="w-18 h-18 object-contain" />
               </div>
               <span className="font-display font-bold text-xl">
-                <span className="gradient-text">Safar</span>
-                <span className="text-foreground">Sathi</span>
-                <span className="gradient-text"> AI</span>
+                <span className="text-white">Safar</span>
+                <span className="text-white">Sathi</span>
+                <span className="text-white"> AI</span>
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-xs">
@@ -56,8 +56,8 @@ const Footer = () => {
 
           {/* Link columns */}
           {Object.entries(links).map(([category, items]) => (
-            <div key={category}>
-              <h4 className="font-semibold text-foreground text-sm mb-4">{category}</h4>
+            <div key={category} className="col-span-1">
+              <h4 className={`font-semibold text-sm mb-4 ${category === "Support" ? "text-white" : "text-foreground"}`}>{category}</h4>
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item}>
@@ -72,6 +72,12 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+
+          {/* World Map */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-1 h-80 md:h-96 lg:h-96">
+            <h4 className="font-semibold text-white text-sm mb-3">Travel Activity</h4>
+            <WorldMap />
+          </div>
         </div>
 
         {/* Bottom bar */}
