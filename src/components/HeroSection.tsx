@@ -92,7 +92,7 @@ const HeroSection = () => {
         {/* Typing effect subtitle */}
         <div className="text-xl md:text-2xl text-muted-foreground mb-4 animate-slide-up delay-200 h-8" style={{color:"black"}}>
           Generate:{" "}
-          <span className="font-semibold typing-cursor" style={{ color: "black" }}>{displayText}</span>
+          <span className="gradient-text font-semibold typing-cursor">{displayText}</span>
         </div>
 
         <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-10 animate-slide-up delay-300" style={{color:"black", fontFamily: "Montserrat, sans-serif" }}>

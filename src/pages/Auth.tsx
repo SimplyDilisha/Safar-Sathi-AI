@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Plane, Mail, Lock, Eye, EyeOff, Loader2, User } from "lucide-react";
+import Logo from "../assets/Logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { PageTransition } from "@/components/PageTransition";
 
@@ -57,8 +58,7 @@ const Auth = () => {
         <div className="w-full max-w-md relative z-10">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 justify-center mb-8">
-            <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center glow-blue">
-            </div>
+            <img src={Logo} alt="Logo" className="w-9 h-9 rounded-xl" />
             <span className="font-display font-bold text-xl">
               <span className="gradient-text">Safar</span>
               <span className="text-foreground">Sathi</span>

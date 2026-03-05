@@ -4,6 +4,7 @@ import {
   Plane, Plus, MapPin, Calendar, DollarSign,
   Trash2, LogOut, User, Globe, BarChart3, Clock, Star
 } from "lucide-react";
+import Logo from "../assets/Logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { PageTransition } from "@/components/PageTransition";
@@ -63,9 +64,7 @@ const Dashboard = () => {
           <aside className="hidden lg:flex w-64 min-h-screen flex-col glass-card border-r border-border fixed left-0 top-0 bottom-0 z-40">
             <div className="p-6 border-b border-border">
               <Link to="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-gradient-primary flex items-center justify-center">
-                  <Plane className="w-4 h-4 text-white" />
-                </div>
+                <img src={Logo} alt="Logo" className="w-8 h-8 rounded-xl" />
                 <span className="font-display font-bold text-lg">
                   <span className="gradient-text">Safar</span>
                   <span className="text-foreground">Sathi</span>
@@ -120,9 +119,7 @@ const Dashboard = () => {
             {/* Mobile header */}
             <div className="flex items-center justify-between mb-8 lg:hidden">
               <Link to="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-gradient-primary flex items-center justify-center">
-                  <Plane className="w-4 h-4 text-white" />
-                </div>
+                <img src={Logo} alt="Logo" className="w-8 h-8 rounded-xl" />
                 <span className="font-display font-bold text-lg gradient-text">SafarSathi AI</span>
               </Link>
               <button onClick={handleSignOut} className="p-2 rounded-xl glass-card text-muted-foreground hover:text-destructive">

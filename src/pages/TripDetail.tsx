@@ -5,6 +5,7 @@ import {
   Hotel, Utensils, Car, Camera, Coffee,
   Sun, Cloud, CloudRain, Thermometer, ArrowLeft, Bookmark
 } from "lucide-react";
+import Logo from "../assets/Logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { PageTransition } from "@/components/PageTransition";
@@ -91,9 +92,7 @@ const TripDetail = () => {
               Back to Dashboard
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Plane className="w-3.5 h-3.5 text-white" />
-              </div>
+              <img src={Logo} alt="Logo" className="w-7 h-7 rounded-lg" />
               <span className="font-display font-bold text-sm gradient-text">SafarSathi AI</span>
             </div>
           </div>
