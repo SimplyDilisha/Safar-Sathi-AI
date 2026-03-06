@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Plane, MapPin, Globe, Compass } from "lucide-react";
 import Logo from "../assets/Logo.png";
+import SplashBg from "../assets/SplashBg.png";
 
 const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   id: i,
@@ -37,7 +38,13 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-700 ${
         phase >= 5 ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "linear-gradient(145deg, #ffffff 0%, #f0f4ff 30%, #f5f0ff 60%, #f0fffe 100%)" }}
+      style={{
+        backgroundImage: `url(${SplashBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "transparent",
+      }}
     >
       {/* Animated grid pattern */}
       <div
@@ -205,10 +212,10 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                   left: "50%",
                   transform: "translateX(-50%)",
                   background: [
-                    "hsl(217,91%,60%)",
-                    "hsl(270,60%,65%)",
-                    "hsl(175,80%,45%)",
-                    "hsl(217,91%,75%)",
+                    "hsl(124, 91%, 50%)",
+                    "hsl(57, 100%, 51%)",
+                    "hsl(175, 100%, 51%)",
+                    "hsl(22, 100%, 50%)",
                   ][i],
                   boxShadow: `0 0 10px ${["hsl(217,91%,60%,0.5)", "hsl(270,60%,65%,0.5)", "hsl(175,80%,45%,0.5)", "hsl(217,91%,75%,0.5)"][i]}`,
                   width: 6 - i,
@@ -230,7 +237,7 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                 key={i}
                 className="inline-block"
                 style={{
-                  background: "linear-gradient(135deg, hsl(289, 94%, 25%), hsl(270, 88%, 30%))",
+                  background: "linear-gradient(135deg, hsl(124, 91%, 50%), hsl(185, 100%, 53%))",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   animation: phase >= 2 ? `splashLetterPop 0.5s ease-out ${i * 0.05}s both` : "none",
@@ -241,9 +248,14 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             ))}
           </h1>
           <p
-            className={`text-muted-foreground text-sm tracking-[0.3em] uppercase transition-all duration-700 delay-700 ${
-              phase >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-sm tracking-[0.3em] uppercase transition-all duration-700 delay-700 ${
+              phase >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 "
             }`}
+            style={{
+              background: "linear-gradient(135deg, hsl(124, 91%, 50%), hsl(185, 100%, 53%))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
             AI-Powered Travel Planning
           </p>
@@ -265,7 +277,7 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
               className="h-full rounded-full transition-all duration-[1400ms] ease-out"
               style={{
                 width: phase >= 4 ? "100%" : "0%",
-                background: "linear-gradient(90deg, hsl(217,91%,60%), hsl(270,60%,60%), hsl(175,80%,45%))",
+                background: "linear-gradient(135deg, hsl(124, 91%, 50%), hsl(185, 100%, 53%))",
                 backgroundSize: "200% 100%",
                 animation: phase >= 3 ? "splashShimmer 1.5s ease-in-out infinite" : "none",
               }}
@@ -275,7 +287,11 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             className={`text-center text-xs mt-3 transition-opacity duration-500 ${
               phase >= 4 ? "opacity-60" : "opacity-0"
             }`}
-            style={{ color: "hsl(220,15%,55%)" }}
+            style={{
+              background: "linear-gradient(135deg, hsl(124, 91%, 50%), hsl(185, 100%, 53%))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
             Preparing your journey...
           </p>

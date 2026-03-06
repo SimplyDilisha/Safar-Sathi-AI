@@ -45,7 +45,7 @@
     --glass-border: 220 15% 80% / 0.6;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(328, 45%, 6%), hsl(270, 67%, 4%));
+    --gradient-primary: linear-gradient(135deg, hsl(201, 89%, 44%), hsl(270, 67%, 4%));
     --gradient-teal: linear-gradient(135deg, hsl(175 80% 42%), hsl(217 91% 60%));
     --gradient-hero: linear-gradient(135deg, hsl(217 91% 15%), hsl(270 60% 20%), hsl(175 80% 15%));
     --gradient-glow: radial-gradient(ellipse at 50% 50%, hsl(217 91% 60% / 0.15), transparent 70%);
