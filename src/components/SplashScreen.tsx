@@ -38,6 +38,7 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-700 ${
         phase >= 5 ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
+      
       style={{
         backgroundImage: `url(${SplashBg})`,
         backgroundSize: "cover",
@@ -45,7 +46,9 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         backgroundRepeat: "no-repeat",
         backgroundColor: "transparent",
       }}
+      
     >
+      <div className="absolute inset-0 backdrop-blur-sm bg-background/1 pointer-events-none" />
       {/* Animated grid pattern */}
       <div
         className={`absolute inset-0 transition-opacity duration-[2000ms] ${

@@ -122,7 +122,7 @@ const Planner = () => {
       {loading && <GlobeLoader destination={city} />}
 
       {/* Header */}
-      <header className="sticky top-0 z-40 glass-card border-b border-border">
+      <header className="sticky top-0 z-40 backdrop-blur-md bg-background/30 border-b border-border/50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <img src={Logo} alt="Logo" className="w-8 h-8 rounded-xl object-contain" />

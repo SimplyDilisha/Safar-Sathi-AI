@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Plane, Mail, Lock, Eye, EyeOff, Loader2, User } from "lucide-react";
 import Logo from "../assets/Logo.png";
+import WorldMapBg from "../assets/WorldMap.png";
 import { supabase } from "@/integrations/supabase/client";
 import { PageTransition } from "@/components/PageTransition";
 
@@ -48,7 +49,9 @@ const Auth = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">
+      <div className="min-h-screen bg-background bg-cover bg-center bg-no-repeat flex items-center justify-center p-4 relative overflow-hidden" style={{ backgroundImage: `url(${WorldMapBg})` }}>
+        {/* Background blur overlay */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-background/40 pointer-events-none" />
         {/* Background orbs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/8 blur-3xl" />
