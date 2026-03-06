@@ -1,6 +1,7 @@
 import { Plane, Instagram, Linkedin, Github, Mail } from "lucide-react";
 import WorldMap from "./WorldMap";
 
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
