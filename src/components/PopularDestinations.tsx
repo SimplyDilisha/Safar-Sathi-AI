@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import DestinationsBg from "../assets/Destinations.png";
 
 interface Destination {
@@ -56,6 +57,7 @@ const destinations: Destination[] = [
 ];
 
 const PopularDestinations = () => {
+  const navigate = useNavigate();
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -181,7 +183,7 @@ const PopularDestinations = () => {
             >
               {/* Image Container */}
               <div
-                className="absolute inset-0 overflow-hidden"
+                className="absolute inset-0 overflow-hidden pointer-events-none"
                 style={{ borderRadius: "24px" }}
               >
                 <img
@@ -192,7 +194,7 @@ const PopularDestinations = () => {
 
                 {/* Gradient Overlay */}
                 <div
-                  className="absolute inset-0 transition-opacity duration-500"
+                  className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
                   style={{
                     background:
                       "linear-gradient(to top, rgba(14, 31, 65, 0.9) 0%, rgba(14, 31, 65, 0.4) 50%, transparent 100%)",
@@ -201,7 +203,7 @@ const PopularDestinations = () => {
 
                 {/* Hover Gradient Overlay */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(255, 122, 47, 0.3) 0%, rgba(14, 31, 65, 0.7) 100%)",
@@ -210,7 +212,7 @@ const PopularDestinations = () => {
               </div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 relative z-10">
                 {/* Country Tag */}
                 <span
                   className="inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-3 backdrop-blur-md"
@@ -241,7 +243,11 @@ const PopularDestinations = () => {
 
                 {/* CTA Button */}
                 <button
-                  className="discover-btn self-start inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white transition-all duration-300 group-hover:gap-4"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/planner?city=${encodeURIComponent(destination.name)}`);
+                  }}
+                  className="discover-btn self-start inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white transition-all duration-300 group-hover:gap-4 relative z-20 cursor-pointer"
                   style={{
                     backgroundColor: "#ff7a2f",
                     boxShadow: "0 4px 15px rgba(255, 122, 47, 0.4)",

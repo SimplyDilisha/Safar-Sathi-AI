@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Logo from "../assets/Logo.png";
+import WorldMapBg from "../assets/WorldMap.png";
 import {
   Plane, Calendar, DollarSign, MapPin, Loader2,
   Sun, Cloud, CloudRain, Thermometer, Star,
@@ -47,6 +49,17 @@ const Planner = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+
+  // Prefill `city` from query param (e.g. /planner?city=Paris)
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("city");
+      if (q) setCity(q);
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   const tabs = ["overview", "itinerary", "weather", "budget", "places"];
 
@@ -105,16 +118,14 @@ const Planner = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${WorldMapBg})` }}>
       {loading && <GlobeLoader destination={city} />}
 
       {/* Header */}
       <header className="sticky top-0 z-40 glass-card border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <Plane className="w-4 h-4 text-white" />
-            </div>
+            <img src={Logo} alt="Logo" className="w-8 h-8 rounded-xl object-contain" />
             <span className="font-display font-bold text-lg">
               <span className="gradient-text">Safar</span>
               <span className="text-foreground">Sathi</span>
